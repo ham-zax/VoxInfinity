@@ -53,7 +53,9 @@ on the intended TTS website/page before installing or troubleshooting.
   lightly tested fallback if direct API mode cannot learn or send the speech
   request reliably. It supports the homepage too.
 - `configure.py` - fills in the checked-in `TARGET_DOMAIN` and `TARGET_MODEL`
-  placeholders before installation.
+  placeholders before installation. These placeholders are intentional: the
+  target website owner could patch against obvious public literals, so the repo
+  keeps those values out of the checked-in userscripts until local setup.
 
 ## Install
 
