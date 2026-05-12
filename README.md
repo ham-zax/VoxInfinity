@@ -41,16 +41,10 @@ the intended TTS website/page before installing or troubleshooting.
 ## Install
 
 1. Install a userscript manager such as Tampermonkey.
-2. From this folder, run:
+2. From the repository root, run:
 
    ```bash
    python3 configure.py
-   ```
-
-   You can also run it from the parent repo:
-
-   ```bash
-   python3 vox-infinity-repo/configure.py
    ```
 
 3. Open `scripts/vox-infinity-direct-api.user.js` in your browser and install
