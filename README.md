@@ -10,19 +10,35 @@ Use `VoxInfinity Direct API` first. It is the main script and is usually the
 best option because it sends speech requests directly instead of clicking
 through the page UI for every chunk.
 
+Both scripts support the homepage widget. `VoxInfinity Direct API` has been
+tested with the homepage widget only, and that is the recommended path for the
+free/unlimited experiment: queueing chunks through the homepage widget session.
+
+The platform playground is also supported and can produce better quality output,
+but it follows the platform's normal account, quota, and free-credit limits.
+Use the playground when quality matters more than the free/unlimited homepage
+widget path.
+
 The target voice website expects requests to come from an active page session.
 Keep the TTS tab open and active while generating. If you want smoother playback
 or need to leave the tab later, click `Pre-gen all` while the tab is active so
 the queue is prepared first.
 
-This does not make the playground free or unlimited. VoxInfinity can queue long
-text and work around the per-request character limit by splitting text into
-chunks, but the site's account, quota, or free-credit limits still apply. Once
-the free credits run out, generation will stop or fail the same way it does in
-the normal playground.
+VoxInfinity works around the per-request character limit by splitting text into
+chunks. It does not make the paid playground unlimited. The homepage widget is
+the free/unlimited target for this experiment.
 
-Use the screenshots below to identify the platform name and confirm you are on
-the intended TTS website/page before installing or troubleshooting.
+`VoxInfinity DOM Automation` also supports the homepage. It should work with
+both the homepage and playground flows because it uses the page UI, but I only
+tested it a little and did not find an obvious issue. Treat this whole project
+as my experiment, not a polished product.
+
+Use the main screenshot below to identify the platform name and confirm you are
+on the intended TTS website/page before installing or troubleshooting.
+
+<p>
+  <img src="assets/image.png" alt="VoxInfinity running on the supported homepage TTS platform" width="100%">
+</p>
 
 <p>
   <img src="assets/direct-api.png" alt="VoxInfinity Direct API mode on the supported TTS playground" width="49%">
@@ -32,9 +48,10 @@ the intended TTS website/page before installing or troubleshooting.
 ## What is included
 
 - `scripts/vox-infinity-direct-api.user.js` - Direct API mode. Install this
-  first.
+  first. This is the homepage-widget-tested version.
 - `scripts/vox-infinity-dom-automation.user.js` - DOM Automation mode. Use this
-  fallback if direct API mode cannot learn or send the speech request reliably.
+  lightly tested fallback if direct API mode cannot learn or send the speech
+  request reliably. It supports the homepage too.
 - `configure.py` - fills in the checked-in `TARGET_DOMAIN` and `TARGET_MODEL`
   placeholders before installation.
 
@@ -71,6 +88,9 @@ use placeholder match rules.
 - Direct API mode sends chunks through the learned/default speech endpoint.
 - DOM Automation mode clicks the page's normal generate flow and captures the
   returned audio.
+- Direct API mode is tested with the homepage widget only.
+- DOM Automation mode supports the homepage and should work with playground
+  flows too, but it is not fully tested.
 - Keep the tab visible while DOM Automation mode is generating; background tabs
   can delay browser automation and media capture.
 
